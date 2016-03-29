@@ -6,6 +6,19 @@ gem 'rails', '4.2.5.1'
 
 gem 'rake', '10.4.2'
 
+gem 'mysql2', '>= 0.3.13', '< 0.5'
+
+
+# Devise
+
+gem 'devise'
+
+
+# Angular
+# gem 'angularjs-rails', '~> 1.5'
+
+# gem 'angular-rails-templates', '~> 1.0'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.6'
@@ -36,7 +49,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
 	# Use sqlite3 as the database for Active Record
-	gem 'sqlite3'
+	# gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 end

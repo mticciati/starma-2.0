@@ -1,56 +1,155 @@
 Rails.application.routes.draw do
+
+  devise_for :users
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'landing#index'
+  root 'pages#welcome'
 
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  # static pages - need new way to avoid having to update all files when adding a static page
+  get '/welcome' => 'pages#welcome'
+  get '/home' => 'pages#home'
+  get '/about' => 'pages#about'
+  get '/contact' => 'pages#contact'
+  # /about-astrology
+  # /why-vedic
+  # /help
 
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+  # get 'profile', to: 'users#show'
 
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
 
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
 
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
+  # route draft notes
+  # modules
 
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
+  # dashboard
+    # dashboard index -> 
+      # chart intro
+      # random celebs
+      # random match
+      # random community
+  
+  # profile
+    
+    # profile index ->
+      # profile pic
+      # basic info
+      # chart Vedic
+      # chart Western
+      # chart astrologer view
+      # user details
+      # uploaded pics - not yet
+    
+    # profile edit ->
+      # profile pic cropper
+      # basic info
+      # user details
+      # birth info
 
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
+    # profile_other index ->
+      # profile pic
+      # basic info
+      # chart Vedic
+      # chart Western
+      # chart astrologer view
+      # user details
+      # interaction buttons
+      # uploaded pics - not yet
 
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+    # profile_celeb index ->
+      # profile pic
+      # basic info
+      # chart Vedic
+      # chart Western
+      # chart astrologer view
+      # user details
+      # interaction buttons
+      # uploaded pics - not yet
+
+  # chart
+    
+    # chart index ->
+      # chart Vedic
+      # chart Western
+      # chart astrologer view
+    
+    # chart create ->
+
+    # chart_other index ->
+      # chart Vedic
+      # chart Western
+      # chart astrologer view
+
+    
+  # compare
+
+    #compare index ->
+      # compare major
+      # compare minor
+      # compare other
+
+  # community 
+
+    # community index ->
+      # all users
+      # search
+      # facebook friends
+
+  # favorites
+
+    # favorites index ->
+      # all favorites
+      # search
+      # facebook friends
+
+    # favorites create ->
+      # add favorite
+
+    # favorites destroy ->
+      # remove favorites
+
+  # custom chart
+
+    # custome chart index ->
+      # birth info
+
+    # custom chart index -> -- Can this be from chart_other and profile_other?
+      # chart Vedic
+      # chart Western
+      # chart astrologer view
+      # invite button
+
+    # cutstom chart compare index -> -- Can this be from compare?
+      # compare major
+      # compare minor
+      # compare other
+
+  # celebrities
+
+    # celebrities show ->
+      # all celebs
+      # search
+
+  # inbox
+
+    # inbox -> index
+      # messages
+      # new message
+
+    # inbox show ->
+      # message history
+
+    # inbox create -> 
+      # new message
+
+  # settings
+
+    # settings -> index
+      # all preferences
+
+    # settings update -> 
+      # setting to update
+
 end
