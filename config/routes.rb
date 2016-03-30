@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
   devise_for :users
+  resources :users
+
+  resources :celebs, only: [:index, :show]
+
+  resources :messages
 
   root 'pages#welcome'
 
@@ -15,8 +20,6 @@ Rails.application.routes.draw do
 
   # get 'profile', to: 'users#show'
 
-
-
   # route draft notes
   # modules
 
@@ -27,43 +30,8 @@ Rails.application.routes.draw do
       # random match
       # random community
   
-  # profile
-    
-    # profile index ->
-      # profile pic
-      # basic info
-      # chart Vedic
-      # chart Western
-      # chart astrologer view
-      # user details
-      # uploaded pics - not yet
-    
-    # profile edit ->
-      # profile pic cropper
-      # basic info
-      # user details
-      # birth info
 
-    # profile_other index ->
-      # profile pic
-      # basic info
-      # chart Vedic
-      # chart Western
-      # chart astrologer view
-      # user details
-      # interaction buttons
-      # uploaded pics - not yet
-
-    # profile_celeb index ->
-      # profile pic
-      # basic info
-      # chart Vedic
-      # chart Western
-      # chart astrologer view
-      # user details
-      # interaction buttons
-      # uploaded pics - not yet
-
+#user -> has_one
   # chart
     
     # chart index ->

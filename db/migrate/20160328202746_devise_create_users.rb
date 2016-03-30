@@ -52,6 +52,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.string :current_location
       # t.string :profile_step
 
+      # t.integer :admin, default: 0
+      # t.integer :astrologer, default: 0
+
 
       t.timestamps null: false
     end
