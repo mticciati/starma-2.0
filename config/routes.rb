@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   # /why-vedic
   # /help
 
+  # dashboard
+  get '/dashboard' => 'dashboards#show'
+
   # get 'profile', to: 'users#show'
 
   # route draft notes

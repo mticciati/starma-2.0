@@ -1,0 +1,24 @@
+<div class="row text-center">
+	<div class="container">
+		<div class="col-md-6 well">
+			<%= render 'match', match: @dashboard.match %>
+		</div>
+
+		<div class="col-md-6 well">
+			<%= render 'users', users: @dashboard.users %>
+		</div>
+
+	</div>
+</div>
+
+<div class="row text-center">
+	<div class="container">
+		<div class="col-md-6 well">
+			<%= render 'chart_teaser', chart_teaser: @dashboard.chart_teaser %>
+		</div>
+
+		<div class="col-md-6 well">
+			<%= render 'celebs', celebs: @dashboard.celebs %>
+		</div>
+	</div>
+</div>
