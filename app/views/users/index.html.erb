@@ -1,6 +1,12 @@
-<h1>All Users</h1>
+<h1>Community Page</h1>
 
 <p>render partial 'search'</p>
 <p>render partial 'find_fb_friends'</p>
 
-<p>All Celebs Infinite Scroll</p>
+<h2>All Users</h2>
+
+<% @users.each do |u| %>
+  
+  <p><%= u.email %></p>
+
+<% end %>

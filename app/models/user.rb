@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 
   has_many :messages
 
+  scope :all_except, ->(user) { where.not(id: user) }
+
   # has_one :chart_vedic, as: :chartable
   # has_one :chart_western, as: :chartable
 

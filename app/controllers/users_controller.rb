@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 			
 	def index
-		# community infinite scroll
+		@users = User.all_except(current_user)
 	end     
   
   def show
