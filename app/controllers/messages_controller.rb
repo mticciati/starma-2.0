@@ -11,9 +11,12 @@ class MessagesController < ApplicationController
 	end
 
 	def new
+		@to = User.find(params['user'])
+		@message = Message.new
 	end
 
 	def create
+		@message
 	end
 
 end

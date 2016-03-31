@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   
   resources :celebs, only: [:index, :show]
 
-  resources :messages
+  resources :messages, only: [:index, :show, :new, :create]
 
   root 'pages#welcome'
 

@@ -1,0 +1,15 @@
+<% if @message.errors.any? %>
+  <% @message.errors.full_messages.each do |msg| %>
+
+  <div class="alert alert-danger"><%= msg %></div>
+
+  <% end %>
+<% end %>
+
+<%= form_for(@message) do |f| %>
+  <div class="form-group">
+    <%= f.text_area :body, placeholder: "New Message", class: "form-control" %>
+  </div>
+  <%= f.submit "Send Message!", class: "btn btn-primary" %>
+
+<% end %>

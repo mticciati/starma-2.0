@@ -5,6 +5,8 @@ class UsersController < ApplicationController
 	end     
   
   def show
+    @user = User.find_by_id(params[:id])
+    @current_user = current_user
   	# profile facade? - @profile = Profile.new(current_user)
   	
   	# user.profile pic - paperclip or carrierwave

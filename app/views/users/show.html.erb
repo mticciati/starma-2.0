@@ -1,5 +1,19 @@
-<h1>Profile</h1>
+<% if @user == @current_user %>
+ 
+ <h1>My Profile</h1>
 
+<% else %>
+  
+  <h1><%= @user.email %></h1>
+
+  <br />
+  <%= link_to new_message_path(user: @user), type: "button", method: :get do %>
+    <button class="btn btn-primary"><span class="glyphicon glyphicon-envelop"></span> Send a Message</button>
+  <% end %>
+
+<% end %>
+
+<br/><br/>
 <p>render @profile facade with each piece coming from app/facades/profile.rb</p>
 
 <p>unless @user == current_user render 'interactions'</p>
