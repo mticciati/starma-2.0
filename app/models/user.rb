@@ -3,11 +3,17 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  # before_save :create_charts
 
-  # has_one :chart_vedic
-  # has_one :chart_western
+  # has_one :chart_vedic, as: :chartable
+  # has_one :chart_western, as: :chartable
 
  	# Model actions
-	 # scope :random, limit: 10
+	  # scope :random, limit: 10
  	# in controller - @random = User.random
+
+  # def create_charts
+    # Chart_vedic.new(self)
+    # Chart_western.new(self)
+
 end

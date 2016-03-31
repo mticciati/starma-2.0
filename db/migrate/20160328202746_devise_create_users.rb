@@ -32,7 +32,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
 
 
-      # basic account info - get during sign up
+      ## basic account info - get during sign up
 
       # t.string :first_name
       # t.string :last_name
@@ -41,14 +41,14 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.string :username, null: false
 
 
-      # stage of use - how much has the user completed or viewed?
+      ## stage of use - how much has the user completed or viewed?
 
       # t.integer :disabled, default: 0
       # t.integer :compare_major_viewed, default: 0
       # t.integer :compare_minor_viewed, default: 0
       # t.integer :profile_finished, default: 0
 
-      # TODO
+      ## TODO
       # t.string :current_location
       # t.string :profile_step
 

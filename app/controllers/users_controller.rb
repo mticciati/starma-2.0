@@ -25,4 +25,7 @@ class UsersController < ApplicationController
       # birth info
 	end 
 
+  def update
+  end
+
 end

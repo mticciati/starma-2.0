@@ -9,17 +9,12 @@
 <body>
 
 <header>
-	<div class="row">
-		<div class="col-md-12 text-center">
-			<h1>Starma</h1>
-		</div>
-	</div>
+	<%= render 'layouts/topnav' %>
 </header>
 
 <% flash.each do |name, msg| %>
-	<ul>
-		<li><%= msg %></li>
-	</ul>
+	
+  <div><%= msg %></div>
 
 <% end %>
 
