@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   # before_save :create_charts
 
+  has_many :messages
+
   # has_one :chart_vedic, as: :chartable
   # has_one :chart_western, as: :chartable
 
