@@ -12,9 +12,9 @@
 	<%= render 'layouts/topnav' %>
 </header>
 <div class="container-fluid">
-  <% flash.each do |name, msg| %>
+  <% flash.each do |type, msg| %>
   	
-    <div><%= msg %></div>
+    <div class="alert alert-<%= type %>"><%= msg %></div>
 
   <% end %>
 

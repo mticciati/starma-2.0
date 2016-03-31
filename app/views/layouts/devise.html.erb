@@ -13,8 +13,9 @@
 </header>
 
 <div class="container-fluid">
-  <% flash.each do |name, msg| %>
-  	<div><%= msg %></div>
+  <% flash.each do |type, msg| %>
+  	
+    <div class="alert alert-<%= type %>"><%= msg %></div>
 
   <% end %>
 
