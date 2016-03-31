@@ -11,14 +11,15 @@
 <header>
 	<%= render 'layouts/topnav' %>
 </header>
+<div class="container-fluid">
+  <% flash.each do |name, msg| %>
+  	
+    <div><%= msg %></div>
 
-<% flash.each do |name, msg| %>
-	
-  <div><%= msg %></div>
-
-<% end %>
+  <% end %>
 
 	<%= yield %>
+</div>
 
 </body>
 </html>
