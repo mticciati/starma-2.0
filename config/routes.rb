@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   root 'pages#welcome'
 
-  # static pages - need new way to avoid having to update all files when adding a static page
+  ## static pages - need new way to avoid having to update all files when adding a static page
   get '/welcome' => 'pages#welcome'
   get '/home' => 'pages#home'
   get '/about' => 'pages#about'
@@ -19,8 +19,14 @@ Rails.application.routes.draw do
   # /why-vedic
   # /help
 
+  ## facades
+
   # dashboard
   get '/dashboard' => 'dashboards#show'
+
+  get '/inbox' => 'inbox#show'
+
+
 
   # get 'profile', to: 'users#show'
 
