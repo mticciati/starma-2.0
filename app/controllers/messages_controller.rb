@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
 	# validate current_user
 
 	def index
-		@conversations = Message.conversations(current_user.id)
+		# @conversations = Message.conversations(current_user.id)
 		@message = Message.new
 	end
 
@@ -12,9 +12,9 @@ class MessagesController < ApplicationController
 	end
 
 	def new
-		@to = User.find(params['user'])
+		@receiver = User.find(params['user'])
 		@message = Message.new
-		@message.to_user_id = @to.id
+		@message.receiver_id = @receiver.id
 	end
 
 	def create
@@ -25,14 +25,14 @@ class MessagesController < ApplicationController
 			# redirect_to whatever user was last viewing
 		else
 			flash[:danger] = "We can't send an empty message!"
-			redirect_to new_message_path(user: @message.to_user_id)
+			redirect_to new_message_path(user: @message.receiver_id)
 		end
 	end
 
 	private
 
 	def message_params
-		params.require(:message).permit(:body, :to_user_id).merge(from_user_id: current_user.id)
+		params.require(:message).permit(:body, :receiver_id).merge(sender_id: current_user.id)
 	end
 
 end

@@ -5,8 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   # before_save :create_charts
 
-  has_many :messages
-
   scope :all_except, ->(user) { where.not(id: user) }
 
   def foo

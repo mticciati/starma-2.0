@@ -1,10 +1,18 @@
 <h2>Conversations</h2>
 
 <br/>
-<% conversations.each do |c| %>
+<% if conversations.blank? %>
+
+  <p>You have no conversations yet...</p>
   
-  <br/>
-  <%= link_to "With User id: #{c.to_user_id}", remote: true %> 
-  <br/>
+<% else %>
+  
+  <% conversations.each do |c| %>
+    
+    <br/>
+    <%= link_to "With User id: #{c.receiver_id}", remote: true %> 
+    <br/>
+
+  <% end %>
 
 <% end %>
