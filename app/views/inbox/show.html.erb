@@ -13,8 +13,11 @@
         <%= render 'conversations', conversations: @inbox.conversations %>
       </div>
   
-      <div class="col-md-6">
-        <%= render 'new_message' %>
+      <div class="col-md-5 new-message">
+        <h2 class="new-msg-title">New Message</h2>
+        <input type="text" class="form-control" id="to_user" placeholder="Who are you messaging?"></input>
+        <br/>
+        <%= render '/shared/message', message: @inbox.message %>
       </div>
     </div>
   </div>

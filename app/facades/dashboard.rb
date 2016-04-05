@@ -1,7 +1,7 @@
 class Dashboard 
 
-	def initialize(current_user)
-		@user = current_user
+	def initialize(user)
+		@user = user
 	end
 
 	def chart_teaser

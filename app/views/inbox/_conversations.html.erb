@@ -3,6 +3,6 @@
 <br/>
 <% conversations.each do |c| %>
 
-  <p>With User id: <%= c.to_user_id %></p>
+  <%= link_to "With User id: " + c.to_user_id, remote: true %></span></p>
 
 <% end %>

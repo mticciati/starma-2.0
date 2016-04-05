@@ -22,7 +22,7 @@
           <li class="<%= 'active' if current_page?(dashboard_path) %>"><%= link_to "Home", dashboard_path %></li>
           <li class="<%= 'active' if current_page?(user_path(current_user)) %>"><%= link_to "Profile", user_path(current_user) %></li>
           <li class="<%= 'active' if current_page?(users_path) %>"><%= link_to "Community", users_path %></li>
-          <li class="<%= 'active' if current_page?(inbox_path) %>"><%= link_to "Inbox", inbox_path %></li>
+          <li class="<%= 'active' if current_page?(messages_path) %>"><%= link_to "Inbox", messages_path %></li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">

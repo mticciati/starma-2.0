@@ -9,6 +9,10 @@ class User < ActiveRecord::Base
 
   scope :all_except, ->(user) { where.not(id: user) }
 
+  def foo
+    "foo"
+  end
+
   # has_one :chart_vedic, as: :chartable
   # has_one :chart_western, as: :chartable
 

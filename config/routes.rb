@@ -24,8 +24,6 @@ Rails.application.routes.draw do
   # dashboard
   get '/dashboard' => 'dashboards#show'
 
-  get '/inbox' => 'inbox#show'
-
 
 
   # get 'profile', to: 'users#show'

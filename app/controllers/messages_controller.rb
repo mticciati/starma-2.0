@@ -3,7 +3,8 @@ class MessagesController < ApplicationController
 	# validate current_user
 
 	def index
-		# @messages = Message.all(current_user)
+		@conversations = Message.conversations(current_user.id)
+		@message = Message.new
 	end
 
 	def show

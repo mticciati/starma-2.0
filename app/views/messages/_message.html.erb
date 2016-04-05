@@ -1,18 +1,12 @@
-<% if @message.errors.any? %>
-  <% @message.errors.full_messages.each do |msg| %>
+<%= render '/shared/errors', obj: @message %>
 
-  <div class="alert alert-danger"><%= msg %></div>
-
-  <% end %>
-<% end %>
-
-<%= form_for(@message) do |f| %>
+<%= form_for(message) do |f| %>
 
   <div class="form-group">
     <%= f.text_area :body, placeholder: "New Message", class: "form-control" %>
   </div>
 
-  <%= f.hidden_field :to_user_id, value: @message.to_user_id %>
+  <%= f.hidden_field :to_user_id, value: message.to_user_id %>
 
   <%= f.submit "Send Message!", class: "btn btn-primary" %>
 
