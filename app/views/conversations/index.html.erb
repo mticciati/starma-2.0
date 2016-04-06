@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <div class="row text-center">
+    <div class="container">
+      <div class="col-12">
+        <h1>Inbox</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="row text-center">
+    <div class="container">
+      <div class="col-md-6">
+        <%= render 'conversations', conversations: @conversations %> 
+        </div>
+  
+      <div class="col-md-5">
+
+        <h2 class="msg-area-title">Messages</h2>
+        <div class="msg-area">
+
+          <button class="btn btn-primary">New Message</button>
+
+          <!-- input w/ recipient -->
+          <!-- render message partial -->
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<div id="all-users">
+
+  <h1>Users</h1>
+
+  <% users.each do |u| %>
+  
+    <p><%= link_to u.email, user_path(u) %></p>
+
+  <% end %>
+</div>

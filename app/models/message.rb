@@ -1,9 +1,16 @@
 class Message < ActiveRecord::Base
   validates :body, presence: true
 
+  belongs_to :conversation
+  belongs_to :user
+
+  validates_presence_of :body, :conversation_id, :user_id
+
+  # before save if conversation_id.blank? increment(conversation_id:, by 1)
+
   # retrieving messages
   # TODO get the query right...
-  scope :all_between, ->(current_user, other_user) { where('(sender_id: current_user.id, receiver_id: other_user OR sender_id: other_user, receiver_id: current_user.id)') }
+  # scope :all_between, ->(current_user, other_user) { where('(sender_id: current_user.id, receiver_id: other_user OR sender_id: other_user, receiver_id: current_user.id)') }
 
   # TODO
   # needs to be chronological, only include DISTINCT conversation_id per sender_id

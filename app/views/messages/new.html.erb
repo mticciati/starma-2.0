@@ -1,18 +1,14 @@
 <h2>New Message</h2>
 
-<p>Send a message to <%= @receiver.email %></p>
-
 <div class="row">
   <div class="col-md-4 col-sm-12">
     <%= render '/shared/errors', obj: @message %>
 
-    <%= form_for(@message) do |f| %>
+    <%= form_for [@conversation, @message] do |f| %>
 
       <div class="form-group">
         <%= f.text_area :body, placeholder: "New Message", class: "form-control" %>
       </div>
-
-      <%= f.hidden_field :receiver_id, value: @message.receiver_id %>
 
       <%= f.submit "Send Message!", class: "btn btn-primary" %>
 

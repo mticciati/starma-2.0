@@ -2,37 +2,35 @@ class MessagesController < ApplicationController
 
 	# validate current_user
 
-	def index
-		# @conversations = Message.conversations(current_user.id)
-		@message = Message.new
+	before_action do 
+		@conversation = Conversation.find(params[:conversation_id])
 	end
 
 	def show
-		# message thread
+		# individual message
 	end
 
 	def new
-		@receiver = User.find(params['user'])
-		@message = Message.new
-		@message.receiver_id = @receiver.id
+		@message = @conversation.messages.new
 	end
 
 	def create
-		@message = Message.new(message_params)
+		@message = @conversation.messages.new(message_params)
+		# if conversation_id.exist? @message.conversation_id = conversation_id
 		if @message.save
 			flash[:sucess] = "Message Sent!"
 			redirect_to root_path
 			# redirect_to whatever user was last viewing
 		else
 			flash[:danger] = "We can't send an empty message!"
-			redirect_to new_message_path(user: @message.receiver_id)
+			redirect_to new_conversation_message_path(@conversation)
 		end
 	end
 
 	private
 
 	def message_params
-		params.require(:message).permit(:body, :receiver_id).merge(sender_id: current_user.id)
+		params.require(:message).permit(:body).merge(user_id: current_user.id)
 	end
 
 end
