@@ -1,6 +1,9 @@
 <% @conversation.messages.each do |m| %>
   
-  <h3><%= message_from(m) %></h3>
-  <p><%= m.body %></p>
+  <div>
+    <h4><%= message_from(m) %></h4>
+    <p><%= m.body %></p>
+    <small><%= time_ago_in_words(m.created_at) %> ago</small>
+  </div>
 
 <% end %>
