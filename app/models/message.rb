@@ -6,6 +6,14 @@ class Message < ActiveRecord::Base
 
   validates_presence_of :body, :conversation_id, :user_id
 
+
+  scope :unread_messages, ->(user_id, conversation_id) do
+    where.not(user_id: user_id).where(conversation_id: conversation_id, read: 0).count
+  end
+
+  scope :mark_as_read, ->(user_id, conversation_id) do
+    where.not(user_id: user_id).where(conversation_id: conversation_id).update_all(read: 1)
+  end
   # before save if conversation_id.blank? increment(conversation_id:, by 1)
 
   # retrieving messages

@@ -9,7 +9,7 @@
   
   <% conversations.each do |c| %>
     
-    <p><%= link_to "#{sender_or_recipient(current_user, c)}", conversation_path(c.id), remote: true %></p>
+    <p><%= link_to "#{sender_or_recipient(c)}", conversation_path(c.id), remote: true %></p>
     
   <% end %>
 

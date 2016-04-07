@@ -6,6 +6,10 @@ class ConversationsController < ApplicationController
 
   def show
     @conversation = Conversation.get_conversation(current_user.id, params[:id]).first
+    
+    # set conversation messages to read = 1
+    Message.mark_as_read(current_user.id, params[:id])
+
     # if @conversation.blank? redirect_to conversations_path flash[:danger] = "Conversation not found!"
 
     respond_to do |format|
@@ -33,7 +37,7 @@ class ConversationsController < ApplicationController
   private
 
     def conversation_params
-      params.require(:conversation).permit(:sender_id, :recipient_id)
+      params.permit(:sender_id, :recipient_id)
     end
 
     def set_sender_recipient
