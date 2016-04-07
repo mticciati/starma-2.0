@@ -25,7 +25,7 @@
           <li class="<%= 'active' if current_page?(conversations_path) %>">
             <%= link_to conversations_path  do %> 
               Inbox
-              <span><%= unread_messages != 0 ? unread_messages : "" %></span>
+              <span><%= if unread_messages != 0 then unread_messages end %></span>
             <% end %>
 
             
