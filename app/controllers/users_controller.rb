@@ -31,4 +31,17 @@ class UsersController < ApplicationController
   def update
   end
 
+  def check_username
+    if /[a-zA-Z0-9_-]/.match(params[:username])
+      user = User.username(params[:username])
+      if user.blank?
+        render :json => ["free", ":)"]
+      else
+        render :json => ["taken", "Sorry, username exists!"]
+      end
+    else
+      render :json => ["Letters, numbers, dashes and underscores only please :)"]
+    end
+  end
+
 end

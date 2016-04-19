@@ -13,3 +13,28 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+#birthday-month {
+  width: 20%;
+  display: inline;
+}
+
+#birthday-day {
+  width: 20%;
+  display: inline;
+}
+
+#birthday-year {
+  width: 40%;
+  display: inline;
+}
+
+.form-error {
+  display: none;
+}
+
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}

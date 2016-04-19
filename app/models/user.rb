@@ -3,13 +3,19 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  validates :username, presence: true
   # before_save :create_charts
 
+  # before_save :combine_birthday
+
   scope :all_except, ->(user) { where.not(id: user) }
+
+  scope :username, ->(username) { where(username: username) }
 
   def foo
     "foo"
   end
+
 
   # has_one :chart_vedic, as: :chartable
   # has_one :chart_western, as: :chartable

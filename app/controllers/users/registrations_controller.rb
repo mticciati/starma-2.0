@@ -1,10 +1,12 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-# before_filter :configure_sign_up_params, only: [:create]
+  # before_filter :combine_birthday, only: [:create]
+  # before_action :configure_permitted_parameters, if: :devise_controller?
+
 # before_filter :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
   # def new
-  #   super
+  #    super
   # end
 
   # POST /resource
@@ -36,11 +38,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
+
+  # def combine_birthday
+  #   date = Date.parse(params[:birthday])
+
+  #   params[:birthday] = date.year.to_s + date.month.to_s + date.day.to_s
+  # end
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.for(:sign_up) << :attribute
+  # def configure_permitted_parameters
+  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
   # end
 
   # If you have extra params to permit, append them to the sanitizer.
