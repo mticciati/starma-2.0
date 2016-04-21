@@ -1,4 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
+  
   # before_filter :combine_birthday, only: [:create]
   # before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -11,7 +12,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   # def create
-  #   super
+  #   super 
+  #   params[:birthday] = "#{params[:birthday_year]}:#{params[:birthday_month]}:#{params[:birthday_day]}"
+
   # end
 
   # GET /resource/edit
@@ -38,13 +41,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  protected
+  # private
 
   # def combine_birthday
-  #   date = Date.parse(params[:birthday])
-
-  #   params[:birthday] = date.year.to_s + date.month.to_s + date.day.to_s
+  # #   # month = Date.parse(:birthday_month)
+  # #   # day = Date.parse(:birthday_day)
+  # #   # year = Date.parse(:birthday_year)
+  #   params[:birthday] = "#{params[:birthday_year]}:#{params[:birthday_month]}:#{params[:birthday_day]}"
+  #   debugger
+ 
   # end
+
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_permitted_parameters

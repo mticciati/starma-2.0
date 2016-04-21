@@ -42,6 +42,16 @@
 
   <br/>
 
+  <div class="field">
+    <%= f.label :birthday %><br/>
+    
+    <%= f.date_select :birthday, :start_year=>1900 %>
+
+ </div>
+  <div id="birthday-errors" class="alert alert-danger form-error"></div>
+
+  <br/>
+
   <div class="actions">
     <%= f.submit "Sign up", class: "btn btn-primary" %>
   </div>
@@ -50,8 +60,7 @@
 <%= render "users/shared/links" %>
 
 <!--
-    # f.label :birthday <br />
-    # f.text_field :birthday, placeholder: "MM", maxlength: 2, id: "birthday-month", class: "form-control" 
-    # f.text_field :birthday, placeholder: "DD", maxlength: 2, id: "birthday-day", class: "form-control" 
-    # f.text_field :birthday, placeholder: "YYYY", maxlength: 4, id: "birthday-year", class: "form-control" 
-    -->
+text_field_tag :birthday_month, "", placeholder: "MM", maxlength: 2, id: "birthday-month", class: "form-control" 
+text_field_tag :birthday_day, "", placeholder: "DD", maxlength: 2, id: "birthday-day", class: "form-control" 
+text_field_tag :birthday_year, "", placeholder: "YYYY", maxlength: 4, id: "birthday-year", class: "form-control" 
+-->

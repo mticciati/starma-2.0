@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :birthday])
   end
 
   def layout_by_resource
@@ -17,6 +17,6 @@ class ApplicationController < ActionController::Base
   end
 
   def set_current_user
-  	@current_user = current_user unless !current_user
+  	@current_user ||= current_user 
   end
 end

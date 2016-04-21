@@ -3,7 +3,11 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  validates :username, presence: true
+  validates :username, presence: true, uniqueness: true, length: { minimum: 3, maximum: 18 }
+  validates :birthday, presence: true
+  validate :of_age
+
+  # validates :terms_of_service, acceptance: { accept: 'yes' }
   # before_save :create_charts
 
   # before_save :combine_birthday
@@ -14,6 +18,13 @@ class User < ActiveRecord::Base
 
   def foo
     "foo"
+  end
+
+  def of_age
+    d = Date.today
+    if birthday > d.prev_year(18)
+      errors.add( :user, "Must be 18 or older to join!" )
+    end
   end
 
 

@@ -8,6 +8,10 @@ function usernameChars(data) {
   return /^[a-zA-Z0-9_-]*$/.test(data);
 }
 
+function usernameLength(username) {
+  return username.length < 20 && username.length > 2;
+}
+
 
 
 $(document).ready(function() {
@@ -112,7 +116,6 @@ $(document).ready(function() {
     }
     
   });
-
 
 
 });
