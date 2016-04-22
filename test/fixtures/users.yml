@@ -34,3 +34,4 @@ meow:
   username: hello123_-E
   birthday: 1980-10-10
   email: meow@meow.com
+  encrypted_password: 1234
