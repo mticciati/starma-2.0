@@ -5,9 +5,11 @@ class UsersController < ApplicationController
 	end     
   
   def show
-    @user = User.find(params[:id])
-    @current_user = current_user
-
+    if params[:id] != current_user.id
+      @user = User.find(params[:id])
+    else
+      @current_user = current_user
+    end
     # profile facade? - @profile = Profile.new(current_user)
   	
   	# user.profile pic - paperclip or carrierwave
