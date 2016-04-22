@@ -9,3 +9,28 @@
 #
 # two: {}
 #  column: value
+
+under_age:
+  username: meow_under_age
+  birthday: 2016-10-10
+  email: meowua@meow.com
+
+bad_chars_username:
+  username: $meow
+  birthday: 1988-10-10
+  email: meowbu@meow.com
+
+long_username:
+  username: meow_long_long_long_long
+  birthday: 1988-10-10
+  email: meowlu@meow.com
+
+short_username:
+  username: me
+  birthday: 1988-10-10
+  email: meowsu@meow.com
+
+meow:
+  username: hello123_-E
+  birthday: 1980-10-10
+  email: meow@meow.com
