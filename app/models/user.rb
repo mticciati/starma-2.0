@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   validates_format_of :username, :with => /\A[a-zA-Z0-9_-]+\z/, :on => [:create, :update]
   validate :of_age
   geocoded_by :location
-  after_validation :geocode
+  after_validation :geocode, if: ->(obj){ obj.location.present? and obj.location_changed? }
 
   # validates :terms_of_service, acceptance: { accept: 'yes' }
   # before_save :create_charts
