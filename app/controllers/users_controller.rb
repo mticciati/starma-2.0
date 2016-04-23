@@ -23,14 +23,17 @@ class UsersController < ApplicationController
   end
 
 	def edit
-		# if current_user
-      # profile pic cropper
-      # basic info
-      # user details
-      # birth info
+    @current_user = current_user
 	end 
 
   def update
+    if @current_user.update(user_params)
+      flash[:success] = "Profile updated!"
+      redirect_to user_path(current_user.id)
+    else
+      flash[:danger] = "Uh oh, we were unable to updated your profile!"
+      redirect_to edit_user_path(current_user.id)
+    end
   end
 
   def check_username
@@ -44,6 +47,12 @@ class UsersController < ApplicationController
     else
       render :json => ["Letters, numbers, dashes and underscores only please :)"]
     end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:location)
   end
 
 end

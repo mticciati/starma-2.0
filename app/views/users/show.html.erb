@@ -1,10 +1,17 @@
 <% if @user == @current_user %>
  
- <h1>My Profile</h1>
+  <h1>My Profile</h1>
+  <h2><%= @current_user.username %></h2>
+  <% if @current_user.location.present? %>
+  <p><%= @current_user.location %></p>
+  <% end %>
+
+
+  <p><%= link_to "Edit Profile", edit_user_path(@current_user.id) %></p>
 
 <% else %>
   
-  <h1><%= @user.email %></h1>
+  <h1><%= @user.username %></h1>
 
   <br />
   <%= link_to conversations_path(sender_id: @current_user.id, recipient_id: @user.id), type: "button", method: :post do %>
@@ -15,5 +22,3 @@
 
 <br/><br/>
 <p>render @profile facade with each piece coming from app/facades/profile.rb</p>
-
-<p>unless @user == current_user render 'interactions'</p>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160419001609) do
+ActiveRecord::Schema.define(version: 20160423033101) do
 
   create_table "conversations", force: :cascade do |t|
     t.integer  "sender_id",    limit: 4, null: false
@@ -47,6 +47,9 @@ ActiveRecord::Schema.define(version: 20160419001609) do
     t.datetime "updated_at",                                      null: false
     t.date     "birthday"
     t.string   "username",               limit: 255,              null: false
+    t.string   "location",               limit: 255
+    t.float    "latitude",               limit: 24
+    t.float    "longitude",              limit: 24
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
