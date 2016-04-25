@@ -1,0 +1,10 @@
+<h2>Users Near Me</h2>
+
+<% if current_user.nearbys(distance).empty? %>
+  <p>There are no users near you!</p>
+<% else %>
+  <% current_user.nearbys(distance).each do |u| %>
+    <p><%= link_to u.username, user_path(u) %></p>
+
+  <% end %>
+<% end %>

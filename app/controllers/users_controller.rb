@@ -49,6 +49,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def search 
+    @distance = params[:distance]
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
 
   def user_params

@@ -29,6 +29,8 @@ Rails.application.routes.draw do
   # validators
   post '/check_username' => 'users#check_username'
 
+  post '/users/search' => 'users#search'
+
 
 
   # get 'profile', to: 'users#show'
