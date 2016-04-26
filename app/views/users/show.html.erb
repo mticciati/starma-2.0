@@ -1,4 +1,8 @@
-<%= gravatar_for @user, size: 150 %>
+<% if @user.avatar.present? %>
+  <%= image_tag(@user.avatar.thumb, alt: @user.username, class: "img-circle") %>
+<% else %>
+  <%= gravatar_for @user, size: 150 %>
+<% end %>
 
 <% if @user == @current_user %>
  

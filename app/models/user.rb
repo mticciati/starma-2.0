@@ -10,6 +10,10 @@ class User < ActiveRecord::Base
   geocoded_by :location
   after_validation :geocode, if: ->(obj){ obj.location.present? and obj.location_changed? }
 
+  ## CarrierWave file uploader
+  mount_uploader :avatar, AvatarUploader
+
+
   # validates :terms_of_service, acceptance: { accept: 'yes' }
   # before_save :create_charts
 
