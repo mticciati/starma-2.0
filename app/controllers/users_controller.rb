@@ -49,7 +49,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def search 
+  def nearby 
     @distance = params[:distance]
     respond_to do |format|
       format.js

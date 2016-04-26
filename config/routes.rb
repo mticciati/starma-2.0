@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   # validators
   post '/check_username' => 'users#check_username'
 
-  post '/users/search' => 'users#search'
+  post '/users/nearby' => 'users#nearby'
 
 
 
