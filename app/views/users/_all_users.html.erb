@@ -1,8 +1,12 @@
 <h2>Users</h2>
 
 <% users.each do |u| %>
-
-  <p><%= link_to u.username, user_path(u) %></p>
+  <div class="user-block">
+    <div class="profile-thumb">
+       <%= image_tag(u.avatar.thumb, alt: u.username, class: "img-circle") %>
+    </div>
+    <p><%= link_to u.username, user_path(u) %></p>
+  </div>
 
 <% end %>
 

@@ -47,6 +47,7 @@ gem 'geocoder'
 ## Image uploader
 gem 'carrierwave'
 gem "mini_magick"
+gem 'carrierwave-crop'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
