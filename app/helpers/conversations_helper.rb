@@ -17,16 +17,15 @@ module ConversationsHelper
 
     conversations = Conversation.get_all(current_user.id)
 
-    unread = 0
-
-    if conversations.present?
-      
+    unread = 0 
+    
+    if conversations.present?      
       conversations.each do |c|
         unread += Message.unread_messages(current_user.id, c.id)
       end
     end
 
-    return unread
+    unread
 
   end
 
