@@ -10,6 +10,22 @@ Rails.application.routes.draw do
     resources :messages, only: [:new, :create]
   end
 
+  ## TODO RESTful chart api
+  # scope '/api' do 
+  #   scope '/v1' do
+  #     scope '/charts' do
+  #       scope '/:user_id' do
+  #         scope '/vedic-charts' do
+  #           resources :vedic_charts, only: [:create, :update, :destroy]
+  #         end
+  #         scope '/western-charts' do
+  #           resources :western_charts, only: [:create, :update, :destroy]
+  #         end
+  #       end
+  #     end
+  #   end
+  # end
+
   root 'pages#welcome'
 
   ## static pages - need new way to avoid having to update all files when adding a static page
