@@ -18,7 +18,7 @@ class MessagesController < ApplicationController
 		@message = @conversation.messages.new(message_params)
 		# if conversation_id.exist? @message.conversation_id = conversation_id
 		if @message.save
-			flash[:sucess] = "Message Sent!"
+			flash[:success] = "Message Sent!"
 			redirect_to root_path
 			# redirect_to whatever user was last viewing
 		else

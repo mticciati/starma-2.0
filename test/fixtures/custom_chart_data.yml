@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  birth_place: MyString
+  birth_time: MyString
+  birth_latitude: 1.5
+  birth_longitude: 1.5
+  time_unknown: false
+  time_interval: 1
+  dst: false
+
+two:
+  user_id: 
+  birth_place: MyString
+  birth_time: MyString
+  birth_latitude: 1.5
+  birth_longitude: 1.5
+  time_unknown: false
+  time_interval: 1
+  dst: false
