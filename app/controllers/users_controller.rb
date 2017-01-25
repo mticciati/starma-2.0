@@ -37,7 +37,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     if @user
-      # @user.destroy
+      @user.destroy
       flash[:danger] = "User #{@user.username} has almost been destroyed"
       redirect_to admin_path
     end
