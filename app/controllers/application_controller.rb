@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   layout :layout_by_resource
   before_action :set_current_user
-  helper_method :logged_in?, :set_current_user
+  helper_method :logged_in?, :set_current_user, :admin?
 
   def logged_in?
     !!current_user
@@ -23,6 +23,10 @@ class ApplicationController < ActionController::Base
 
   def set_current_user
   	@current_user ||= current_user 
+  end
+
+  def admin?
+    current_user.role == "admin"
   end
   
 end
