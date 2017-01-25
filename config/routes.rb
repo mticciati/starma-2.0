@@ -41,6 +41,7 @@ Rails.application.routes.draw do
 
   # dashboard
   get '/dashboard' => 'dashboards#show'
+  get '/admin' => 'admins#show'
 
   # validators
   post '/check_username' => 'users#check_username'
