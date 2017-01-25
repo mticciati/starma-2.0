@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-			
+	before_action :set_current_user, only: [:show, :edit]
+
 	def index
 		@users = User.all_except(current_user)
 	end     
@@ -7,8 +8,6 @@ class UsersController < ApplicationController
   def show
     if params[:id] != current_user.id
       @user = User.find(params[:id])
-    else
-      @current_user = current_user
     end
     # profile facade? - @profile = Profile.new(current_user)
   	
@@ -23,7 +22,6 @@ class UsersController < ApplicationController
   end
 
 	def edit
-    @current_user = current_user
 	end 
 
   def update

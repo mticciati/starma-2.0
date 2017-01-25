@@ -5,6 +5,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   layout :layout_by_resource
   before_action :set_current_user
+  helper_method :logged_in?, :set_current_user
+
+  def logged_in?
+    !!current_user
+  end
 
   protected
 
@@ -19,4 +24,12 @@ class ApplicationController < ActionController::Base
   def set_current_user
   	@current_user ||= current_user 
   end
+
+  def require_logged_in
+    if !logged_in?
+      flash[:danger] = "You must be logged in to do that!"
+      redirect_to root_path
+    end
+  end
+  
 end
