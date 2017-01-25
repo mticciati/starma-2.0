@@ -4,21 +4,16 @@
   <%= gravatar_for @user, size: 150 %>
 <% end %>
 
-<% if logged_in? && current_user == @user %>
- 
-  <h2><%= current_user.username %></h2>
-  <% if current_user.location.present? %>
-  <p><%= current_user.location %></p>
-  <% end %>
-
-
-  <p><%= link_to "Edit Profile", edit_user_path(current_user.id) %></p>
-
-<% else %>
+<h1><%= @user.username %></h1>
   
-  <h1><%= @user.username %></h1>
+<% if @user.location.present? %>
+  <p><%= @user.location %></p>
+<% end %>
 
-  <br />
+<% if logged_in? && current_user == @user %>
+  <p><%= link_to "Edit Profile", edit_user_path(current_user.id) %></p>
+<% else %>
+
   <%= link_to conversations_path(sender_id: current_user.id, recipient_id: @user.id), type: "button", method: :post do %>
     <button class="btn btn-primary"><span class="glyphicon glyphicon-envelop"></span> Send a Message</button>
   <% end %>
