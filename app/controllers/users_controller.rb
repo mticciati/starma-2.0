@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 	before_action :set_current_user, only: [:show, :edit]
   before_filter :authenticate_user!
+  before_action :require_admin, only: [:destroy]
 
 	def index
 		@users = User.all_except(current_user)
@@ -33,6 +34,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    if @user
+      @user.destroy
+      flash[:danger] = "User #{@user.username} has almost been destroyed"
+      redirect_to admin_path
+    end
+  end
+
+# TODO move to model
   def check_username
     if /[a-zA-Z0-9_-]/.match(params[:username])
       user = User.username(params[:username])

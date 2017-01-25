@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :users, only: [:index, :show, :edit, :update]
+  resources :users, only: [:index, :show, :edit, :update, :destroy]
   
   resources :celebs, only: [:index, :show]
 
@@ -41,6 +41,7 @@ Rails.application.routes.draw do
 
   # dashboard
   get '/dashboard' => 'dashboards#show'
+  get '/admin' => 'admins#show'
 
   # validators
   post '/check_username' => 'users#check_username'

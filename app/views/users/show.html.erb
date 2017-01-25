@@ -1,24 +1,31 @@
-<% if @user.avatar.present? %>
-  <%= image_tag(@user.avatar.profile, alt: @user.username, class: "img-circle") %>
-<% else %>
-  <%= gravatar_for @user, size: 150 %>
-<% end %>
+<div class="row">
+  <div class="col-xs-10 col-xs-offset-1">
+    <% if admin?  %>
+      <p class="alert-danger">You are an Admin</p>
+    <% end %>
 
-<h1><%= @user.username %></h1>
-  
-<% if @user.location.present? %>
-  <p><%= @user.location %></p>
-<% end %>
+    <% if @user.avatar.present? %>
+      <%= image_tag(@user.avatar.profile, alt: @user.username, class: "img-circle") %>
+    <% else %>
+      <%= gravatar_for @user, size: 150 %>
+    <% end %>
 
-<% if logged_in? && current_user == @user %>
-  <p><%= link_to "Edit Profile", edit_user_path(current_user.id) %></p>
-<% else %>
+    <h1><%= @user.username %></h1>
+      
+    <% if @user.location.present? %>
+      <p><%= @user.location %></p>
+    <% end %>
 
-  <%= link_to conversations_path(sender_id: current_user.id, recipient_id: @user.id), type: "button", method: :post do %>
-    <button class="btn btn-primary"><span class="glyphicon glyphicon-envelop"></span> Send a Message</button>
-  <% end %>
+    <% if logged_in? && current_user == @user %>
+      <p><%= link_to "Edit Profile", edit_user_path(current_user.id) %></p>
+    <% else %>
 
-<% end %>
+      <%= link_to conversations_path(sender_id: current_user.id, recipient_id: @user.id), type: "button", method: :post do %>
+        <button class="btn btn-primary"><span class="glyphicon glyphicon-envelop"></span> Send a Message</button>
+      <% end %>
 
-<br/><br/>
-<p>render @profile facade with each piece coming from app/facades/profile.rb</p>
+    <% end %>
+
+    <p>render @profile facade with each piece coming from app/facades/profile.rb</p>
+  </div>
+</div>

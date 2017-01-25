@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
   ## CarrierWave file uploader
   mount_uploader :avatar, AvatarUploader
 
+  has_one :custom_chart_data, dependent: :destroy
+  has_one :vedic_chart, dependent: :destroy
+  has_one :western_chart, dependent: :destroy
+
 
   # validates :terms_of_service, acceptance: { accept: 'yes' }
   # before_save :create_charts
