@@ -17,7 +17,7 @@
         <li></li>
       </ul>
 
-      <% if @current_user %>
+      <% if logged_in? %>
         <ul class="nav navbar-nav">   
           <li class="<%= 'active' if current_page?(dashboard_path) %>"><%= link_to "Home", dashboard_path %></li>
           <li class="<%= 'active' if current_page?(user_path(current_user)) %>"><%= link_to "Profile", user_path(current_user) %></li>
