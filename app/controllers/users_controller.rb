@@ -6,9 +6,7 @@ class UsersController < ApplicationController
 	end     
   
   def show
-    if params[:id] != current_user.id
-      @user = User.find(params[:id])
-    end
+    @user = (params[:id] != current_user.id) ? User.find(params[:id]) : current_user
     # profile facade? - @profile = Profile.new(current_user)
   	
   	# user.profile pic - paperclip or carrierwave
@@ -25,7 +23,7 @@ class UsersController < ApplicationController
 	end 
 
   def update
-    if @current_user.update(user_params)
+    if current_user.update(user_params)
       flash[:success] = "Profile updated!"
       redirect_to user_path(current_user.id)
     else

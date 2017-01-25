@@ -1,9 +1,7 @@
 class PagesController < ApplicationController
 
 	def welcome
-		if current_user 
-			redirect_to dashboard_path
-		end
+		redirect_to dashboard_path if logged_in?
 	end
 
 	def home
