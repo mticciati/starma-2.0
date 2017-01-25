@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   layout :layout_by_resource
   before_action :set_current_user
-  helper_method :logged_in?, :set_current_user, :admin?
+  helper_method :logged_in?, :set_current_user, :admin?, :require_admin
 
   def logged_in?
     !!current_user
@@ -28,5 +28,12 @@ class ApplicationController < ActionController::Base
   def admin?
     current_user.role == "admin"
   end
+
+ def require_admin
+  if !admin?
+    flash[:danger] = "You can't do that!"
+    redirect_to root_path
+  end
+end
   
 end
