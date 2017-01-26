@@ -1,7 +1,7 @@
 class CreateCustomChartData < ActiveRecord::Migration
   def change
     create_table :custom_chart_data do |t|
-      t.references :user, index: true, foreign_key: true
+      t.belongs_to :user, index: true
       t.string :birth_place
       t.string :birth_time
       t.float :birth_latitude
