@@ -6,7 +6,7 @@ class UserTest < ActiveSupport::TestCase
   # end
 
   def setup
-    @user = User.new({ :username => "Test", :email => "test@test.com", :password => "1234", :password_confirmation => "1234", birthday: "1992-02-02", location: "San Francisco, ca", latitude: 37.7749, longitude: -122.419 })
+    @user = users(:one)
   end
 
   test "user should be valid" do
@@ -21,8 +21,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "should have unique username" do 
-    @user.save
-    @user2 = User.new({ :username => "Test", :email => "test2@test.com", :password => "1234", :password_confirmation => "1234", birthday: "1992-02-02", location: "San Francisco, ca", latitude: 37.7749, longitude: -122.419 })
+    @user2 = User.new({ :username => "hello123_-E", :email => "test2@test.com", :password => "1234", :password_confirmation => "1234", birthday: "1992-02-02", location: "San Francisco, ca", latitude: 37.7749, longitude: -122.419 })
 
     assert_not @user2.valid?
   end
@@ -50,7 +49,7 @@ class UserTest < ActiveSupport::TestCase
 
   test "should save when all conditions met" do 
 
-    u = users(:meow)
+    u = users(:one)
     assert u.save, "Failed to save perfectly good user: #{u.errors.full_messages.inspect }"
   
   end
