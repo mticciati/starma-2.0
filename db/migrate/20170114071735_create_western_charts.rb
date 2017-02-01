@@ -6,7 +6,7 @@ class CreateWesternCharts < ActiveRecord::Migration
       t.string :sign
       t.string :type
 
-      t.timestamps null: false
+      t.timestamps 
     end
   end
 end
