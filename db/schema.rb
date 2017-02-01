@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170125185843) do
+ActiveRecord::Schema.define(version: 20170126054002) do
 
   create_table "conversations", force: :cascade do |t|
     t.integer  "sender_id",    limit: 4, null: false
@@ -34,6 +34,15 @@ ActiveRecord::Schema.define(version: 20170125185843) do
   end
 
   add_index "custom_chart_data", ["user_id"], name: "index_custom_chart_data_on_user_id", using: :btree
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer  "user_id",          limit: 4
+    t.integer  "favorite_user_id", limit: 4, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id", using: :btree
 
   create_table "messages", force: :cascade do |t|
     t.integer  "conversation_id", limit: 4
@@ -115,7 +124,4 @@ ActiveRecord::Schema.define(version: 20170125185843) do
 
   add_index "western_charts", ["user_id"], name: "index_western_charts_on_user_id", using: :btree
 
-  add_foreign_key "custom_chart_data", "users"
-  add_foreign_key "vedic_charts", "users"
-  add_foreign_key "western_charts", "users"
 end
