@@ -2,11 +2,13 @@ require 'test_helper'
 
 class CreateMessagesTest < ActionDispatch::IntegrationTest
 
-  # fixtures :all
+  def sign_in_as(user)
+    post user_session_path, user: { email: user.email, password: user.encrypted_password }
+  end
 
   def setup
-    # @user = users(:one)
-    # sign_in users(:one)
+    @user = users(:one)
+    sign_in_as @user
     @conversation = Conversation.create({ :sender_id => 1, :recipient_id => 2 })
   end
 
