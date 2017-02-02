@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   
   resources :celebs, only: [:index, :show]
 
+  resources :favorites 
+
   resources :conversations do
     resources :messages, only: [:new, :create]
   end
