@@ -4,6 +4,7 @@ class UsersControllerTest < ActionController::TestCase
 
   def setup
     @user = users(:one)
+    sign_in users(:one)
   end
 
   test "should get index and instantiate users" do
