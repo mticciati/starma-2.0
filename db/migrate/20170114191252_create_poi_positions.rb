@@ -7,7 +7,7 @@ class CreatePoiPositions < ActiveRecord::Migration
       t.float :coordinates
       t.integer :house
 
-      t.timestamps null: false
+      t.timestamps 
     end
   end
 end

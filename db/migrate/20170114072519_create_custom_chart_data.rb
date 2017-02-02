@@ -10,7 +10,7 @@ class CreateCustomChartData < ActiveRecord::Migration
       t.integer :time_interval
       t.boolean :dst
 
-      t.timestamps null: false
+      t.timestamps 
     end
   end
 end

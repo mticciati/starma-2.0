@@ -30,8 +30,8 @@ short_username:
   birthday: 1988-10-10
   email: meowsu@meow.com
 
-meow:
+one:
   username: hello123_-E
   birthday: 1980-10-10
-  email: meow@meow.com
+  email: test@test.com
   encrypted_password: 1234

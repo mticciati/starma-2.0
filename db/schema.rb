@@ -29,17 +29,17 @@ ActiveRecord::Schema.define(version: 20170126054002) do
     t.boolean  "time_unknown"
     t.integer  "time_interval",   limit: 4
     t.boolean  "dst"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "custom_chart_data", ["user_id"], name: "index_custom_chart_data_on_user_id", using: :btree
 
   create_table "favorites", force: :cascade do |t|
     t.integer  "user_id",          limit: 4
-    t.integer  "favorite_user_id", limit: 4, null: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.integer  "favorite_user_id", limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "favorites", ["user_id"], name: "index_favorites_on_user_id", using: :btree
@@ -64,8 +64,8 @@ ActiveRecord::Schema.define(version: 20170126054002) do
     t.string   "poi",                limit: 255
     t.float    "coordinates",        limit: 24
     t.integer  "house",              limit: 4
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "poi_positions", ["vedic_chart_type", "vedic_chart_id"], name: "index_poi_positions_on_vedic_chart_type_and_vedic_chart_id", using: :btree
@@ -107,8 +107,8 @@ ActiveRecord::Schema.define(version: 20170126054002) do
     t.integer  "house",      limit: 4
     t.string   "sign",       limit: 255
     t.string   "type",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "vedic_charts", ["user_id"], name: "index_vedic_charts_on_user_id", using: :btree
@@ -118,8 +118,8 @@ ActiveRecord::Schema.define(version: 20170126054002) do
     t.integer  "house",      limit: 4
     t.string   "sign",       limit: 255
     t.string   "type",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "western_charts", ["user_id"], name: "index_western_charts_on_user_id", using: :btree
