@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :celebs, only: [:index, :show]
 
   resources :users do 
-    resources :charts, only: [:show, :new, :create, :update, :destroy]
+    resources :charts, only: [:show, :create, :update, :destroy]
   end
 
   resources :conversations do
