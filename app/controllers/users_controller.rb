@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :require_admin, only: [:destroy]
 
 	def index
-		@users = User.where.not(id: current_user).paginate(:page => params[:page], per_page: 1)
+		@users = User.where.not(id: current_user).paginate(:page => params[:page], per_page: 2)
 	end     
   
   def show
