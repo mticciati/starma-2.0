@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 20170126054002) do
     t.float    "longitude",              limit: 24
     t.string   "avatar",                 limit: 255
     t.string   "birth_place",            limit: 255
+    t.string   "birth_time",             limit: 255
     t.float    "birth_latitude",         limit: 24
     t.float    "birth_longitude",        limit: 24
     t.boolean  "time_unknown"
