@@ -8,6 +8,10 @@ Rails.application.routes.draw do
 
   resources :favorites 
 
+  resources :users do 
+    resources :charts, only: [:show, :create, :update, :destroy]
+  end
+
   resources :conversations do
     resources :messages, only: [:new, :create]
   end

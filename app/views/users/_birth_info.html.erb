@@ -1,0 +1,20 @@
+<h3>Birth Info</h3>
+<p>Save your birth info to create your Vedic and Western Birth Charts</p>
+<%= render '/shared/errors', obj: @current_user %>
+
+<%= form_for current_user do |f| %>
+
+  <div class="form-group">
+    <%= f.label :birth_place %>
+    <%= f.text_field :birth_place, placeholder: "Birth Place", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :birth_time %>
+    <%= f.text_field :birth_time, placeholder: "Birth Time", class: "form-control" %>
+  </div>
+
+  <%= f.submit "Create Chart", class: "btn btn-primary" %>
+
+<% end %>
+
