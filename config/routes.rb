@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   
   resources :celebs, only: [:index, :show]
 
-  resources :favorites 
-
+  resources :users do 
+    resources :favorites 
+  end
+  
   resources :users do 
     resources :charts, only: [:show, :create, :update, :destroy]
   end
