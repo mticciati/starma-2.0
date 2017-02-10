@@ -9,9 +9,11 @@ class UserFlowTest < ActionDispatch::IntegrationTest
   test "signed in user is redirected to root" do
     get user_session_path
     assert_equal 200, status
-
-    post user_session_path, user: { 'user[email]' => @user.email, 'user[password]' => @user.encrypted_password }
+    # sign_in_as(@user)
+    post user_session_path, user: { 'user[email]' => @user.email, 'user[password]' => @user.password }
     assert_equal 200, status
+    # get dashboard_path
+    # assert_equal '/dashboard', path
     
   end
 
