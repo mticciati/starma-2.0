@@ -8,7 +8,11 @@
        <%= image_tag(u.avatar.thumb, alt: u.username, class: "img-circle") %>
     </div>
     <p><%= link_to u.username, user_path(u) %></p>
-    <p><%= link_to "Add to Favorites", user_favorites_path(u) %></p>
+    <p>
+      <%= link_to favorites_path(u), type: "button", method: :post do %>
+        <button class="btn btn-primary">Add to Favorites</button>
+      <% end %>
+    </p>
     <% if admin? %>
       <p class="alert-danger">
         <%= link_to "Destroy", user_path(u), :method => :delete, 

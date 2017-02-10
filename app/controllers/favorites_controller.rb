@@ -9,7 +9,14 @@ class FavoritesController < ApplicationController
   end
 
   def create
-    
+    @favorite = Favorite.new(favorite_params)
+    if @favorite.save
+      flash[:success] = "Updated favorites"
+      redirect_to users_path
+    else
+      flash[:danger] = "Unable to update favorites"
+      redirect_to users_path
+    end
   end
 
   def update
@@ -20,6 +27,6 @@ class FavoritesController < ApplicationController
 
   private
     def favorite_params
-      params.permit(:user_id, :favorite_user_id)
+      params.permit(:favorite_user_id).merge(user_id: current_user.id)
     end
 end
