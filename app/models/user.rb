@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   has_one :vedic_chart, dependent: :destroy
   has_one :western_chart, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :users, through: :favorites
 
 
   # validates :terms_of_service, acceptance: { accept: 'yes' }
