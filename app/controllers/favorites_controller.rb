@@ -9,6 +9,7 @@ class FavoritesController < ApplicationController
   end
 
   def create
+    
   end
 
   def update
@@ -16,4 +17,9 @@ class FavoritesController < ApplicationController
 
   def destroy
   end
+
+  private
+    def favorite_params
+      params.permit(:user_id, :favorite_user_id)
+    end
 end
