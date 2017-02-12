@@ -1,5 +1,6 @@
 class CelebsController < ApplicationController
-
+   before_filter :authenticate_user!
+  
   def index
   	# celebs infinite scroll
   end

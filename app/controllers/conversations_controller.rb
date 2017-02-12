@@ -1,4 +1,5 @@
 class ConversationsController < ApplicationController
+  before_filter :authenticate_user!
 
   def index
     @conversations = Conversation.get_all(current_user.id)

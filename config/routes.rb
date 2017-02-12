@@ -2,13 +2,36 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :users, only: [:index, :show, :edit, :update]
+  resources :users, only: [:index, :show, :edit, :update, :destroy]
   
   resources :celebs, only: [:index, :show]
+
+
+  resources :favorites , only: [:index, :show, :create, :update, :destroy]
+  
+  resources :users do 
+    resources :charts, only: [:show, :create, :update, :destroy]
+  end
 
   resources :conversations do
     resources :messages, only: [:new, :create]
   end
+
+  ## TODO RESTful chart api
+  # scope '/api' do 
+  #   scope '/v1' do
+  #     scope '/charts' do
+  #       scope '/:user_id' do
+  #         scope '/vedic-charts' do
+  #           resources :vedic_charts, only: [:create, :update, :destroy]
+  #         end
+  #         scope '/western-charts' do
+  #           resources :western_charts, only: [:create, :update, :destroy]
+  #         end
+  #       end
+  #     end
+  #   end
+  # end
 
   root 'pages#welcome'
 
@@ -25,6 +48,7 @@ Rails.application.routes.draw do
 
   # dashboard
   get '/dashboard' => 'dashboards#show'
+  get '/admin' => 'admins#show'
 
   # validators
   post '/check_username' => 'users#check_username'

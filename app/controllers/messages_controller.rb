@@ -1,6 +1,5 @@
 class MessagesController < ApplicationController
-
-	# validate current_user
+	before_filter :authenticate_user!
 
 	before_action do 
 		@conversation = Conversation.find(params[:conversation_id])

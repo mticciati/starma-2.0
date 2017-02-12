@@ -17,11 +17,12 @@
         <li></li>
       </ul>
 
-      <% if @current_user %>
+      <% if logged_in? %>
         <ul class="nav navbar-nav">   
           <li class="<%= 'active' if current_page?(dashboard_path) %>"><%= link_to "Home", dashboard_path %></li>
           <li class="<%= 'active' if current_page?(user_path(current_user)) %>"><%= link_to "Profile", user_path(current_user) %></li>
           <li class="<%= 'active' if current_page?(users_path) %>"><%= link_to "Community", users_path %></li>
+          <li class="<%= 'active' if current_page?(favorites_path) %>"><%= link_to "Favorites", favorites_path %></li>
           <li class="<%= 'active' if current_page?(conversations_path) %>">
             <%= link_to conversations_path  do %> 
               Inbox
@@ -30,9 +31,22 @@
           </li>
         </ul>
 
-        <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "#{@current_user.email}", user_path(current_user) %></a></li>
-          <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+        <ul class="nav navbar-nav navbar-right">   
+          <% if admin? %>
+            <li><a href="/admin">Admin Section</a></li>
+          <% end %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= "#{@current_user.username}" %><%= " - Admin" if admin? %><span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Profile", user_path(current_user) %></a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+            </ul>
+          </li>
         </ul>
       <% else %>
         <ul class="nav navbar-nav navbar-right">

@@ -1,15 +1,14 @@
 class UsersController < ApplicationController
-			
+	before_action :set_current_user, only: [:show, :edit]
+  before_filter :authenticate_user!
+  before_action :require_admin, only: [:destroy]
+
 	def index
-		@users = User.all_except(current_user)
+		@users = User.where.not(id: current_user).paginate(:page => params[:page], per_page: 2)
 	end     
   
   def show
-    if params[:id] != current_user.id
-      @user = User.find(params[:id])
-    else
-      @current_user = current_user
-    end
+    @user = (params[:id] != current_user.id) ? User.find(params[:id]) : current_user
     # profile facade? - @profile = Profile.new(current_user)
   	
   	# user.profile pic - paperclip or carrierwave
@@ -23,11 +22,10 @@ class UsersController < ApplicationController
   end
 
 	def edit
-    @current_user = current_user
 	end 
 
   def update
-    if @current_user.update(user_params)
+    if current_user.update(user_params)
       flash[:success] = "Profile updated!"
       redirect_to user_path(current_user.id)
     else
@@ -36,6 +34,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    if @user
+      @user.destroy
+      flash[:danger] = "User #{@user.username} has almost been destroyed"
+      redirect_to admin_path
+    end
+  end
+
+# TODO move to model
   def check_username
     if /[a-zA-Z0-9_-]/.match(params[:username])
       user = User.username(params[:username])
@@ -59,7 +67,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:location, :avatar)
+    params.require(:user).permit(:location, :avatar, :birth_place, :birth_time)
   end
 
 end

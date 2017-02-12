@@ -1,11 +1,23 @@
 <h1>Edit Profile</h1>
 
 <div class="row">
-
   <div class="col-md-6 col-xs-10">
 
     <%= render "edit", current_user: @current_user %>
+  
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6 col-xs-10">
+
+    <%= render "birth_info", current_user: @current_user %>
 
   </div>
+</div>
 
+<div class="row">
+  <div class="col-md-6 col-xs-10">
+    <%= link_to "Cancel", user_path(current_user) %>
+  </div>
 </div>

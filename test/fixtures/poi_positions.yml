@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vedic_chart_id: 
+  vedic_chart_type: Vedic chart
+  western_chart_id: 
+  western_chart_type: Western chart
+  poi: MyString
+  coordinates: 1.5
+  house: 1
+
+two:
+  vedic_chart_id: 
+  vedic_chart_type: Vedic chart
+  western_chart_id: 
+  western_chart_type: Western chart
+  poi: MyString
+  coordinates: 1.5
+  house: 1
