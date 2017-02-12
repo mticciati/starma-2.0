@@ -27,6 +27,6 @@ class FavoritesController < ApplicationController
 
   private
     def favorite_params
-      params.permit(:favorite_user_id).merge(user_id: current_user.id)
+      params.require(:favorite).permit(:favorite_user_id).merge(user_id: current_user.id)
     end
 end

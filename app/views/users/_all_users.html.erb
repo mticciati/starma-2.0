@@ -9,8 +9,9 @@
     </div>
     <p><%= link_to u.username, user_path(u) %></p>
     <p>
-      <%= link_to favorites_path(u), type: "button", method: :post do %>
-        <button class="btn btn-primary">Add to Favorites</button>
+      <%= form_for(Favorite.new) do |f| %>
+        <%= f.hidden_field :favorite_user_id, value: u.id %>
+        <%= f.submit "Add to Favorites", class: "btn btn-primary" %>
       <% end %>
     </p>
     <% if admin? %>
