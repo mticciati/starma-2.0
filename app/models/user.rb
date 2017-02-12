@@ -17,10 +17,10 @@ class User < ActiveRecord::Base
   has_one :vedic_chart, dependent: :destroy
   has_one :western_chart, dependent: :destroy
   has_many :favoriters, through: :favoriter_favorites, source: :favoriter, dependent: :destroy
-  has_many :favoriter_favorites, foreign_key: :favoriter_id, class_name: "Favorite"
+  has_many :favoriter_favorites, foreign_key: :favoritee_id, class_name: "Favorite"
 
   has_many :favoritees, through: :favoritee_favorites, source: :favoritee, dependent: :destroy
-  has_many :favoritee_favorites, foreign_key: :favoritee_id, class_name: "Favorite"
+  has_many :favoritee_favorites, foreign_key: :favoriter_id, class_name: "Favorite"
 
 
   # validates :terms_of_service, acceptance: { accept: 'yes' }

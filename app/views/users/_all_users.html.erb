@@ -10,7 +10,7 @@
     <p><%= link_to u.username, user_path(u) %></p>
     <p>
       <%= form_for(Favorite.new) do |f| %>
-        <%= f.hidden_field :favorite_user_id, value: u.id %>
+        <%= f.hidden_field :favoritee_id, value: u.id %>
         <%= f.submit "Add to Favorites", class: "btn btn-primary" %>
       <% end %>
     </p>
