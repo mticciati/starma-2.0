@@ -36,13 +36,11 @@ ActiveRecord::Schema.define(version: 20170126054002) do
   add_index "custom_chart_data", ["user_id"], name: "index_custom_chart_data_on_user_id", using: :btree
 
   create_table "favorites", force: :cascade do |t|
-    t.integer  "user_id",          limit: 4
-    t.integer  "favorite_user_id", limit: 4
+    t.integer  "favoriter_id", limit: 4
+    t.integer  "favoritee_id", limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id", using: :btree
 
   create_table "messages", force: :cascade do |t|
     t.integer  "conversation_id", limit: 4
