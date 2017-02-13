@@ -9,7 +9,7 @@ class FavoritesController < ApplicationController
   end
 
   def create
-    @favorite = Favorite.find_existing_favorite(current_user, params[:favorite][:favoritee_id])
+    @favorite = Favorite.favorite_already_added?(current_user, params[:favorite][:favoritee_id])
     if @favorite
       flash[:success] = "That user is already one of your favorites"
       redirect_to users_path
