@@ -9,13 +9,19 @@ class FavoritesController < ApplicationController
   end
 
   def create
-    @favorite = Favorite.new(favorite_params)
-    if @favorite.save
-      flash[:success] = "Updated favorites"
+    @favorite = Favorite.find_existing_favorite(current_user, params[:favorite][:favoritee_id])
+    if @favorite
+      flash[:success] = "That user is already one of your favorites"
       redirect_to users_path
     else
-      flash[:danger] = "Unable to update favorites"
-      redirect_to users_path
+      @favorite = Favorite.new(favorite_params)
+      if @favorite.save
+        flash[:success] = "Updated favorites"
+        redirect_to users_path
+      else
+        flash[:danger] = "Unable to update favorites"
+        redirect_to users_path
+      end
     end
   end
 
