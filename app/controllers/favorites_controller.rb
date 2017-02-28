@@ -2,14 +2,14 @@ class FavoritesController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @user = User.find(current_user)
+    @user = current_user
   end
 
   def show
   end
 
   def create
-    @favorite = Favorite.favorite_already_added?(current_user, params[:favorite][:favoritee_id])
+    @favorite = Favorite.favorite_already_added?(current_user, params[:favorite][:fav_id])
     if @favorite
       flash[:success] = "That user is already one of your favorites"
       redirect_to users_path
@@ -33,6 +33,7 @@ class FavoritesController < ApplicationController
 
   private
     def favorite_params
-      params.require(:favorite).permit(:favoritee_id).merge(favoriter_id: current_user.id)
+      # params.require(:favorite).permit(:favoritee_id).merge(favoriter_id: current_user.id)
+      params.require(:favorite).permit(:fav_id).merge(user_id: current_user.id)
     end
 end
